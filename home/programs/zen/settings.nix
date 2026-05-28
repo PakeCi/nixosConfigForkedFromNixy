@@ -13,8 +13,8 @@ in {
   "browser.newtabpage.activity-stream.feeds.system.topstories" = true;
 
   "browser.aboutwelcome.enabled" = false;
-  "browser.ctrlTab.sortByRecentlyUsed" = false;
-  "browser.startup.page" = 1;
+  "browser.ctrlTab.sortByRecentlyUsed" = true;
+  "browser.startup.page" = 3;
   "browser.startup.firstrunSkipsHomepage" = true;
   "browser.startup.homepage_override.mstone" = "ignore";
   "trailhead.firstrun.didSeeAboutWelcome" = true;

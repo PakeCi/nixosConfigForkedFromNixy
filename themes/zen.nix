@@ -75,8 +75,8 @@
 
     polarity = "dark";
     image = pkgs.fetchurl {
-      url = "https://raw.githubusercontent.com/anotherhadi/awesome-wallpapers/refs/heads/main/app/static/wallpapers/nepal.png";
-      sha256 = "sha256-0o2+B3+yA++PCyfNC+VqmaX959aKk3GuD7XpOq3SGcM=";
+      url = "https://endfield.wiki.gg/images/Snapshot_Perlica_1-1.png?c3e3f9=&format=original";
+      sha256 = "sha256-n1hmG6L5jDMJTzKycFM873OqFCoUTp+stGCkNMN3jpE=";
     };
   };
 }

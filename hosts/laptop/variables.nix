@@ -9,23 +9,23 @@
   ];
 
   config.var = {
-    hostname = "nixy";
-    username = "hadi";
+    hostname = "raidian"; # The hostname of your machine, should match the one in flake.nix
+    username = "raidian";
     configDirectory =
       "/home/"
       + config.var.username
-      + "/.config/nixos"; # The path of the nixos configuration directory
+      + "/.config/nixos-nixy"; # The path of the nixos configuration directory
 
-    keyboardLayout = "fr";
+    keyboardLayout = "us";
 
-    location = "Paris";
-    timeZone = "Europe/Paris";
+    location = "Jakarta";
+    timeZone = "Asia/Jakarta";
     defaultLocale = "en_US.UTF-8";
-    extraLocale = "fr_FR.UTF-8";
+    extraLocale = "id_ID.UTF-8";
 
     git = {
-      username = "Hadi";
-      email = "112569860+anotherhadi@users.noreply.github.com";
+      username = "PakeCi";
+      email = "101933091+PakeCi@users.noreply.github.com";
     };
 
     autoUpgrade = false;

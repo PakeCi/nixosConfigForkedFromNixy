@@ -31,7 +31,22 @@ in {
 
     bind =
       [
-        # Applications
+        # Applications Menu (Modified: cmd + r opens the menu/launcher)
+        "$mod, R, global, caelestia:launcher"
+
+        # Power / Session Menu (Modified: cmd + p opens the power menu)
+        "$mod, P, global, caelestia:session"
+
+        # Close Program (Modified: cmd + x kills the active window)
+        "$mod, X, killactive,"
+
+        # Open Terminal (Modified: cmd + Q opens Ghostty)
+        "$mod, Q, exec, uwsm app -- ${pkgs.ghostty}/bin/ghostty"
+
+        # Tiling / Floating Toggle (Modified: cmd + v toggles tiling/floating status)
+        "$mod, V, togglefloating,"
+
+        # Wlr-Which-Key Menus (Shifted bindings out of the way of your new layout)
         ("$shiftMod, A, exec, "
           + lib.getExe (mkMenu [
             {
@@ -77,7 +92,7 @@ in {
           ]))
 
         # Web links
-        "$mod,B, exec,  uwsm app -- zen-beta" # Browser (Zen)
+        "$mod, B, exec,  uwsm app -- zen-beta" # Browser (Zen)
         ("$shiftMod, B, exec, "
           + lib.getExe (mkMenu [
             {
@@ -122,8 +137,7 @@ in {
             }
           ]))
 
-        # Power
-        "$mod, X, global, caelestia:session" # Powermenu
+        # Secondary Power options
         ("$shiftMod, X, exec, "
           + lib.getExe (mkMenu [
             {
@@ -159,27 +173,24 @@ in {
           ]))
 
         # Quick launch
-        "$mod,RETURN, exec, uwsm app -- ${pkgs.ghostty}/bin/ghostty" # Ghostty (terminal)
-        "$mod,E, exec,  uwsm app -- ${pkgs.thunar}/bin/thunar" # Thunar
+        "$mod, E, exec,  uwsm app -- ${pkgs.thunar}/bin/thunar" # Thunar
         "$shiftMod, E, exec, pkill fuzzel || caelestia emoji -p" # Emoji picker
-        "$mod, SPACE, global, caelestia:launcher" # Launcher
         "$mod, N, exec, caelestia shell drawers toggle sidebar" # Sidebar (Notifications, quick actions)
         "$mod, D, exec, caelestia shell drawers toggle dashboard" # Dashboard
 
-        # Windows
-        "$mod,Q, killactive," # Close window
-        "$mod,F, fullscreen" # Toggle Fullscreen
-        "$shiftMod,F, togglefloating," # Toggle Floating
+        # Windows layout adjustments
+        "$mod, F, fullscreen" # Toggle Fullscreen
+        "$shiftMod, F, togglefloating," # Secondary Toggle Floating
 
         # Focus Windows
-        "$mod,H, movefocus, l" # Move focus left
-        "$mod,J, movefocus, d" # Move focus Down
-        "$mod,K, movefocus, u" # Move focus Up
-        "$mod,L, movefocus, r" # Move focus Right
-        "$shiftMod,H, focusmonitor, -1" # Focus previous monitor
-        "$shiftMod,J, layoutmsg, removemaster" # Remove from master
-        "$shiftMod,K, layoutmsg, addmaster" # Add to master
-        "$shiftMod,L, focusmonitor, 1" # Focus next monitor
+        "$mod, H, movefocus, l" # Move focus left
+        "$mod, J, movefocus, d" # Move focus Down
+        "$mod, K, movefocus, u" # Move focus Up
+        "$mod, L, movefocus, r" # Move focus Right
+        "$shiftMod, H, focusmonitor, -1" # Focus previous monitor
+        "$shiftMod, J, layoutmsg, removemaster" # Remove from master
+        "$shiftMod, K, layoutmsg, addmaster" # Add to master
+        "$shiftMod, L, focusmonitor, 1" # Focus next monitor
 
         # Utilities
         "$shiftMod, SPACE, exec, caelestia shell gameMode toggle" # Toggle Focus/Game mode
@@ -195,9 +206,10 @@ in {
         ])
         9));
 
+    # Note: Mouse resizing binding ($mod, R) has been commented out to prevent conflict with your new programs menu shortcut.
     bindm = [
-      "$mod,mouse:272, movewindow" # Move Window (mouse)
-      "$mod,R, resizewindow" # Resize Window (mouse)
+      "$mod, mouse:272, movewindow" # Move Window (mouse)
+      "$mod, M, resuzewindow"
     ];
 
     bindl = [

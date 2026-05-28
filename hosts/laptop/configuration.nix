@@ -15,14 +15,29 @@
     ../../nixos/docker.nix
     ../../nixos/clamav.nix
 
-    ../../nixos/omen.nix # CHANGEME: For my laptop only, remove this (OMEN 16)
-
     # You should let those lines as is
     ./hardware-configuration.nix
     ./variables.nix
   ];
 
   home-manager.users."${config.var.username}" = import ./home.nix;
+
+  # User definition with empty password
+  users.users.${config.var.username} = {
+    isNormalUser = true;
+    extraGroups = ["wheel"];
+    password = "1234";
+  };
+
+  programs.kdeconnect.enable = true;
+
+  services.flatpak.enable = true;
+
+  system.activationScripts.postActivation.text = ''
+    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+  '';
+
+  nixpkgs.config.allowUnfree = true;
 
   # Don't touch this
   system.stateVersion = "24.05";
