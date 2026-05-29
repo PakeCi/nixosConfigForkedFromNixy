@@ -1,12 +1,3 @@
 {pkgs, ...}: {
-  services = {
-    xserver.enable = true;
-    displayManager.sddm.enable = true;
-    displayManager.sddm.wayland.enable = true;
-    desktopManager.plasma6.enable = true;
-  };
-
-  environment.systemPackages = with pkgs; [
-    kdePackages.plasma-workspace
-  ];
+  services.desktopManager.plasma6.enable = true;
 }
