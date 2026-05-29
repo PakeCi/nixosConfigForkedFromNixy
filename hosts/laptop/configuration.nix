@@ -15,6 +15,7 @@
     ../../nixos/docker.nix
     ../../nixos/clamav.nix
     ../../nixos/plasma.nix
+    ../../nixos/cloudflare.nix
 
     # You should let those lines as is
     ./hardware-configuration.nix
