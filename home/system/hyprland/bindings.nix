@@ -209,7 +209,7 @@ in {
     # Note: Mouse resizing binding ($mod, R) has been commented out to prevent conflict with your new programs menu shortcut.
     bindm = [
       "$mod, mouse:272, movewindow" # Move Window (mouse)
-      "$mod, M, resuzewindow"
+      "$mod, mouse:273, resizewindow"
     ];
 
     bindl = [

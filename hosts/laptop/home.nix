@@ -56,6 +56,8 @@
       notesnook
       element-desktop
       clamtk
+      discord
+      cloudflare-warp
 
       # Dev
       go

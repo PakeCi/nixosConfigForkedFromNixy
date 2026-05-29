@@ -14,6 +14,7 @@
     ../../nixos/hyprland.nix
     ../../nixos/docker.nix
     ../../nixos/clamav.nix
+    ../../nixos/plasma.nix
 
     # You should let those lines as is
     ./hardware-configuration.nix
@@ -32,6 +33,8 @@
   programs.kdeconnect.enable = true;
 
   services.flatpak.enable = true;
+
+  services.printing.enable = true;
 
   system.activationScripts.postActivation.text = ''
     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo

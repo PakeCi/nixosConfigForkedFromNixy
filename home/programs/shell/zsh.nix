@@ -39,6 +39,8 @@ in {
     '';
 
     shellAliases = {
+      rebuild = "sudo nixos-rebuild switch --flake /home/cifera/.config/nixos-nixy#raidian --cores 1 --max-jobs 1";
+      kuliah = "cd ~/dev/kuliah/ && ls";
       vim = "nvim";
       vi = "nvim";
       v = "nvim";

@@ -33,6 +33,8 @@
 
   home = {
     packages = with pkgs; [
+      cloudflared
+      cloudflare-warp
       # Apps
       vlc # Video player
       blanket # White-noise app
