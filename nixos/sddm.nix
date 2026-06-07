@@ -49,11 +49,11 @@ in {
       enable = true;
       wayland.enable = true;
       theme = "sddm-astronaut-theme";
-      settings = {
-        Wayland.SessionDir = "${
-          inputs.hyprland.packages."${pkgs.stdenv.hostPlatform.system}".hyprland
-        }/share/wayland-sessions";
-      };
+      #settings = {
+      #Wayland.SessionDir = "${
+      #inputs.hyprland.packages."${pkgs.stdenv.hostPlatform.system}".hyprland
+      #}/share/wayland-sessions";
+      #};
     };
   };
 

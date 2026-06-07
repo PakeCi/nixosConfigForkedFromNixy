@@ -31,6 +31,7 @@
     ../../home/system/hyprpaper
     ../../home/system/mime
     ../../home/system/udiskie
+    ../../home/system/plasma
 
     ./variables.nix # Mostly user-specific configuration
   ];
