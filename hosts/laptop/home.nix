@@ -34,6 +34,8 @@
     ../../home/system/plasma
 
     ./variables.nix # Mostly user-specific configuration
+
+    inputs.plasma-manager.homeManagerModules.plasma-manager
   ];
 
   home = {

@@ -56,6 +56,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v1.0.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {nixpkgs, ...}: {
@@ -75,6 +80,23 @@
             inputs.stylix.nixosModules.stylix
             inputs.nix-index-database.nixosModules.default
             ./hosts/laptop/configuration.nix # CHANGEME: change the path to match your host folder
+            inputs.lanzaboote.nixosModules.lanzaboote
+
+            ({
+              pkgs,
+              lib,
+              ...
+            }: {
+              environment.systemPackages = [
+                pkgs.sbctl
+              ];
+
+              boot.loader.systemd-boot.enable = lib.mkForce false;
+              boot.lanzaboote = {
+                enable = true;
+                pkiBundle = "/var/lib/sbctl";
+              };
+            })
           ];
         };
 
