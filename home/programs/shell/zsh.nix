@@ -39,6 +39,9 @@ in {
     '';
 
     shellAliases = {
+      clean = "sudo nix-collect-garbage -d";
+      server-start = "sudo systemctl start minecraft-server-saya-akan-lawan-server.service";
+      server-log = "sudo tmux -S /run/minecraft/saya-akan-lawan-server.sock attach";
       server-status = "sudo systemctl status minecraft-server-saya-akan-lawan-server.service";
       playit = "sudo /nix/store/51jgmfk93bjc2v78ag247zsp95vwlv75-playit-1.0.8/bin/playitd --socket-path /run/playit/playit.sock && sudo /nix/store/51jgmfk93bjc2v78ag247zsp95vwlv75-playit-1.0.8/bin/playit-cli";
       playit-agent = "sudo /nix/store/51jgmfk93bjc2v78ag247zsp95vwlv75-playit-1.0.8/bin/playit-cli";
