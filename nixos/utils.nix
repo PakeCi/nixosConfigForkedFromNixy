@@ -111,6 +111,7 @@ in {
     btop
     unrar
     p7zip
+    tmux
   ];
 
   xdg.portal = {

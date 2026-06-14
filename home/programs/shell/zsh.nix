@@ -39,8 +39,12 @@ in {
     '';
 
     shellAliases = {
+      server-status = "sudo systemctl status minecraft-server-saya-akan-lawan-server.service";
+      playit = "sudo /nix/store/51jgmfk93bjc2v78ag247zsp95vwlv75-playit-1.0.8/bin/playitd --socket-path /run/playit/playit.sock && sudo /nix/store/51jgmfk93bjc2v78ag247zsp95vwlv75-playit-1.0.8/bin/playit-cli";
+      playit-agent = "sudo /nix/store/51jgmfk93bjc2v78ag247zsp95vwlv75-playit-1.0.8/bin/playit-cli";
       rebuild = "sudo nixos-rebuild switch --flake /home/cifera/.config/nixos-nixy#raidian --cores 0 --max-jobs 1";
       kuliah = "cd ~/dev/kuliah/ && ls";
+      config = "cd /home/cifera/.config/nixos-nixy/";
       vim = "nvim";
       vi = "nvim";
       v = "nvim";

@@ -23,11 +23,11 @@ in {
     description = "playittt.gg ye becoz i'm lazy af to do port forward";
     after = ["network-online.target"];
     wants = ["network-online.target"];
-    #wantedBy = ["multi-user.target"];
-    wantedBy = lib.mkForce [];
+    wantedBy = ["multi-user.target"];
+    #wantedBy = lib.mkForce [];
     serviceConfig = {
       Type = "simple";
-      ExecStart = "${playitPackage}/bin/playit-cli --secret_path /var/lib/playit/secret.toml";
+      ExecStart = "${playitPackage}/bin/playitd --secret-path /var/lib/playit/secret.toml --socket-path /var/lib/playit/playit.sock";
       Restart = "on-failure";
       RestartSec = "30s";
       User = "playit";
@@ -36,8 +36,12 @@ in {
       ProtectSystem = "strict";
       ProtectHome = true;
       PrivateTmp = true;
-      ReadWritePaths = ["/var/lib/playit"];
-      RestrictAddressFamilies = ["AF_INET" "AF_INET6"];
+
+      StateDirectory = "playit";
+      RuntimeDirectory = "playit";
+      #ReadWritePaths = ["/var/lib/playit" "/run/playit"];
+      RestrictAddressFamilies = ["AF_UNIX" "AF_INET" "AF_INET6"];
+      Environment = "PLAYIT_SOCKET_PATH=/var/lib/playit/playit.sock";
     };
   };
 
