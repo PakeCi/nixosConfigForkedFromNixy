@@ -6,19 +6,28 @@
 }: let
   playitPackage = pkgs.playit-cli;
 in {
-  fileSystems."/var/lib/minecraft" = {
+  fileSystems."/srv/minecraft" = {
     device = "/home/raidian/Minecraft/";
     options = ["bind"];
   };
+
+  users.users.playit = {
+    isSystemUser = true;
+    group = "playit";
+    home = "/var/lib/playit";
+    createHome = true;
+  };
+  users.groups.playit = {};
 
   systemd.services.playit = {
     description = "playittt.gg ye becoz i'm lazy af to do port forward";
     after = ["network-online.target"];
     wants = ["network-online.target"];
-    wantedBy = ["multi-user.target"];
+    #wantedBy = ["multi-user.target"];
+    wantedBy = lib.mkForce [];
     serviceConfig = {
       Type = "simple";
-      ExecStart = "${playitPackage}/bin/playit --secret_path /var/lib/playit/secret.toml";
+      ExecStart = "${playitPackage}/bin/playit-cli --secret_path /var/lib/playit/secret.toml";
       Restart = "on-failure";
       RestartSec = "30s";
       User = "playit";
@@ -40,8 +49,9 @@ in {
       enable = true;
       openFirewall = true;
 
-      package = pkgs.fabricServers.fabric-1_21_1.override {
-        loaderVersion = "0.16.5";
+      package = pkgs.fabricServers.fabric-1_21_11.override {
+        loaderVersion = "0.18.3";
+        jre_headless = pkgs.jdk21_headless;
       };
 
       jvmOpts = lib.concatStringsSep " " [
@@ -103,12 +113,6 @@ in {
         "mods/ferritecore.jar" = pkgs.fetchurl {
           url = "https://cdn.modrinth.com/data/uXXizFIs/versions/Ii0gP3D8/ferritecore-8.2.0-fabric.jar";
           hash = "sha256-92vXYMv0goDMfEMYD1CJpGI1+iTZNKis89oEpmTCxxU=";
-        };
-
-        "mods/c2me.jar" = pkgs.fetchurl {
-          url = "https://cdn.modrinth.com/data/VSNURh3q/versions/wGnmDPvI/c2me-fabric-mc26.1.1-0.3.7%2Balpha.0.63.jar";
-          name = "c2me-fabric-mc26.1.1-0.3.7+alpha.0.63.jar";
-          hash = "sha256-A9hd3Zt+cY5F4oOZjMmm/4zlimof0AKTJ+QHBYO0Gpw=";
         };
       };
     };

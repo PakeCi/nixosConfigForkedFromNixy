@@ -41,7 +41,7 @@
   services.printing.enable = true;
 
   system.activationScripts.postActivation.text = ''
-    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo 2>/dev/null || true
   '';
 
   nixpkgs.config.allowUnfree = true;
