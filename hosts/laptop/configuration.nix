@@ -20,6 +20,9 @@
     # You should let those lines as is
     ./hardware-configuration.nix
     ./variables.nix
+
+    # Minecraft servers
+    ../../server-modules/minecraft.nix
   ];
 
   home-manager.users."${config.var.username}" = import ./home.nix;

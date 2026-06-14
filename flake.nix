@@ -61,6 +61,14 @@
       url = "github:nix-community/lanzaboote/v1.0.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-minecraft = {
+      url = "github:Infinidoge/nix-minecraft";
+    };
+
+    playit = {
+      url = "github:pedorich-n/playit-nixos-module";
+    };
   };
 
   outputs = inputs @ {nixpkgs, ...}: {
@@ -81,6 +89,15 @@
             inputs.nix-index-database.nixosModules.default
             ./hosts/laptop/configuration.nix # CHANGEME: change the path to match your host folder
             inputs.lanzaboote.nixosModules.lanzaboote
+            inputs.nix-minecraft.nixosModules.minecraft-servers
+            {
+              nixpkgs.overlays = [
+                inputs.nix-minecraft.overlay
+                (final: prev: {
+                  playit-cli = inputs.playit.packages.${prev.system}.playit-cli or inputs.playit.packages.${prev.system}.default;
+                })
+              ];
+            }
 
             ({
               pkgs,
