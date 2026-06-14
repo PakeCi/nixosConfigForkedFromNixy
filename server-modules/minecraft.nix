@@ -27,7 +27,7 @@ in {
       ProtectSystem = "strict";
       ProtectHome = true;
       PrivateTmp = true;
-      ReadOnlyPaths = ["/var/lib/playit"];
+      ReadWritePaths = ["/var/lib/playit"];
       RestrictAddressFamilies = ["AF_INET" "AF_INET6"];
     };
   };
@@ -52,7 +52,7 @@ in {
         "-XX:MaxGCPauseMillis=200"
         "-XX:+UnlockExperimentalVMOptions"
         "-XX:+DisableExplicitGC"
-        "-XX:+AlwaysPreTouch"
+        #"-XX:+AlwaysPreTouch"
         "-XX:G1NewSizePercent=30"
         "-XX:G1MaxNewSizePercent=40"
         "-XX:G1HeapRegionSize=8M"
