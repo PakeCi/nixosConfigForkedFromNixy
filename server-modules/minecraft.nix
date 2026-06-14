@@ -118,6 +118,27 @@ in {
           url = "https://cdn.modrinth.com/data/uXXizFIs/versions/Ii0gP3D8/ferritecore-8.2.0-fabric.jar";
           hash = "sha256-92vXYMv0goDMfEMYD1CJpGI1+iTZNKis89oEpmTCxxU=";
         };
+
+        "mods/tab.jar" = pkgs.fetchurl {
+          url = "https://cdn.modrinth.com/data/gG7VFbG0/versions/uWACk3HR/TAB%20v6.0.1.jar";
+          name = "TAB-v6.0.1.jar";
+          hash = "sha256-KBH6LdjAgLEmlvytE5u7k2CCmxhWXTHjpnCUW7Gsios=";
+        };
+
+        "world/datapacks/terralith.jar" = pkgs.fetchurl {
+          url = "https://cdn.modrinth.com/data/8oi3bsk5/versions/TFW9ZxPQ/Terralith_1.21.x_v2.5.14.jar";
+          hash = "sha256-3mLFiOb5f+KgkjyQVBuRYv7MoPX9h6uusJpevlQg238=";
+        };
+
+        "world/datapacks/tectonic.jar" = pkgs.fetchurl {
+          url = "https://cdn.modrinth.com/data/lWDHr9jE/versions/7olSYFxL/tectonic-3.0.19-fabric-1.21.11.jar";
+          hash = "sha256-p0WQfF8uX9saB4b6Ms4AoDiQ4w8bh+bA6hDKoH3CmtY=";
+        };
+
+        "world/datapacks/incendium.jar" = pkgs.fetchurl {
+          url = "https://cdn.modrinth.com/data/ZVzW5oNS/versions/dmD183NM/Incendium_26.1_v5.4.12.jar";
+          hash = "sha256-1Teuth1+OqPKGMFYVx9oCdPjrs+3DeKTn5Lbx6tIRLE=";
+        };
       };
     };
   };
