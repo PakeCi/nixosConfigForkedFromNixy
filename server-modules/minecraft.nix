@@ -103,6 +103,11 @@ in {
           hash = "sha256-hsRTqGE5Zi53VpfQOwynhn9Uc3SGjAyz49wG+Y2/7vU=";
         };
 
+        #"mods/easyauth.jar" = pkgs.fetchurl {
+        #  url = "https://cdn.modrinth.com/data/aZj58GfX/versions/R4EX0C3V/easyauth-mc1.21.11-3.4.3.jar";
+        #  hash = "sha256-T1PfPlyfkieOCsfoab+BpW8pB/CSDKlxGrS5FMgSMEU=";
+        #};
+
         "mods/skinrestorer.jar" = pkgs.fetchurl {
           url = "https://cdn.modrinth.com/data/TsLS8Py5/versions/MD0HyeAx/SkinsRestorer-Mod-Fabric-15.11.0.jar";
           hash = "sha256-Mm16vluUxqs8D1V7eCij9SK381WfVr3YN4HKa2Rgjko=";
