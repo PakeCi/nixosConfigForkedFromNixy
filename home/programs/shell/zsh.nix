@@ -39,6 +39,7 @@ in {
     '';
 
     shellAliases = {
+      server-stop = "sudo systemctl stop minecraft-server-saya-akan-lawan-server.service";
       clean = "sudo nix-collect-garbage -d";
       server-start = "sudo systemctl start minecraft-server-saya-akan-lawan-server.service";
       server-log = "sudo tmux -S /run/minecraft/saya-akan-lawan-server.sock attach";
