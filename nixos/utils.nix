@@ -112,6 +112,8 @@ in {
     unrar
     p7zip
     tmux
+    nasm
+    binutils
   ];
 
   xdg.portal = {
